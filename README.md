@@ -13,14 +13,13 @@ This library was created to meet a specific project need for calculating geometr
 
 ## Supported Features
 
-| Name | Formula | CloudCompare equivalent |
-|---|---|---|
-| `Verticality` | `1 − |n · ẑ|` | Verticality |
-| `Omnivariance` | `(λ₁·λ₂·λ₃)^(1/3)` | Omnivariance |
-| `SurfaceVariation` | `λ₃ / (λ₁+λ₂+λ₃)` | Surface variation (curvature) |
-| `Planarity` | `(λ₂−λ₃) / λ₁` | Planarity |
+Currently supported features (aligned with CloudCompare):
+- **Verticality**: $1 - |n \cdot \hat{z}|$
+- **Omnivariance**: $(\lambda_1 \cdot \lambda_2 \cdot \lambda_3)^{1/3}$
+- **Surface Variation (Curvature)**: $\lambda_3 / (\lambda_1 + \lambda_2 + \lambda_3)$
+- **Planarity**: $(\lambda_2 - \lambda_3) / \lambda_1$
 
-Where **λ₁ ≥ λ₂ ≥ λ₃** are the eigenvalues of the biased 3 × 3 covariance matrix of the neighborhood.
+Where $\lambda_1 \ge \lambda_2 \ge \lambda_3$ are the eigenvalues of the biased $3 \times 3$ covariance matrix of the neighborhood.
 
 ---
 
