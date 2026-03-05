@@ -1,0 +1,56 @@
+[build-system]
+requires = [
+    "scikit-build-core>=0.9",
+    "pybind11>=2.12",
+]
+build-backend = "scikit_build_core.build"
+
+# ─────────────────────────────────────────────────────────────────────────────
+[project]
+name            = "cc_features"
+version         = "1.0.0"
+description     = "High-performance point cloud PCA feature extraction — 100 % CCCoreLib-compatible"
+readme          = "README.md"
+license         = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies    = ["numpy>=1.24"]
+
+keywords = [
+    "point cloud", "lidar", "PCA", "CloudCompare",
+    "feature extraction", "3D", "geometry",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: C++",
+    "Topic :: Scientific/Engineering :: GIS",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+]
+
+[project.optional-dependencies]
+dev  = ["pytest>=7", "numpy", "laspy[lazrs]", "open3d"]
+
+# ─────────────────────────────────────────────────────────────────────────────
+[tool.scikit-build]
+cmake.build-type = "Release"
+cmake.args = [
+    "-DCC_FEATURES_BUILD_PYTHON=ON",
+    "-DCC_FEATURES_BUILD_TESTS=OFF",
+]
+wheel.packages = ["cc_features"]
+# The compiled extension is installed by CMake into cc_features/
+# scikit-build-core picks it up automatically.
+
+[tool.scikit-build.cmake.define]
+CMAKE_BUILD_TYPE = "Release"
+
+# ─────────────────────────────────────────────────────────────────────────────
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts   = "-v"
