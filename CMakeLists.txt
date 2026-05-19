@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
     set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
 endif()
@@ -17,7 +17,7 @@ option(CC_FEATURES_BUILD_PYTHON  "Build pybind11 Python extension" ON)
 option(CC_FEATURES_BUILD_TESTS   "Build unit tests"                ON)
 
 # find eigen and nanoflann
-find_package(Eigen3 5.0.1 REQUIRED NO_MODULE)
+find_package(Eigen3 REQUIRED NO_MODULE)
 message(STATUS "[cc_features] Eigen3 found: ${EIGEN3_INCLUDE_DIR}")
 
 
