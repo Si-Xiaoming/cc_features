@@ -14,7 +14,7 @@ message(STATUS "[cc_features] Build type: ${CMAKE_BUILD_TYPE}")
 
 
 option(CC_FEATURES_BUILD_PYTHON  "Build pybind11 Python extension" ON)
-option(CC_FEATURES_BUILD_TESTS   "Build unit tests"                ON)
+option(CC_FEATURES_BUILD_TESTS   "Build unit tests"                OFF)
 
 # find eigen and nanoflann
 find_package(Eigen3 REQUIRED NO_MODULE)
